@@ -3,6 +3,7 @@ package com.example.authentification;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -66,6 +67,33 @@ cursor.moveToFirst();
         String infos = "Your email is "+mail+"\n"+"Your password is " +password;
         return  infos;
 
+    }
+
+    public Cursor getProfile(String email){
+
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ?", new String[]{email});
+
+        Log.v("Cursor Object", DatabaseUtils.dumpCursorToString(cursor));
+
+        return cursor;
+
+    }
+    public Boolean updateNamePassword(String email, String name,String password){
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("name", name);
+
+        contentValues.put("password", password);
+
+        long result = MyDatabase.update("users", contentValues,"email = ?", new String[]{email});
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
     public Boolean checkusernamepassword(String email, String password) {
 

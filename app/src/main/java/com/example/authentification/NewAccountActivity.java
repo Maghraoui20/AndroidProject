@@ -74,7 +74,7 @@ DBHelper db;
                                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
 // Storing the key and its value as the data fetched from edittext
-                                myEdit.putString("token", "qsjhdqsjdklqhjd");
+                                myEdit.putString("email", mail);
 
 // Once the changes have been made, we need to commit to apply those changes made,
 // otherwise, it will throw an error

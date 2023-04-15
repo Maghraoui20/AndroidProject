@@ -43,7 +43,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 // Fetching the stored data from the SharedPreference
                 SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-                String s1 = sh.getString("token", "");
+                String s1 = sh.getString("email", "");
                 Log.d(s1, "run: ");
                 if(s1.equals("")){
                     Intent intent = new Intent(SplashScreenActivity.this,LoginActivity.class);

@@ -15,12 +15,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="260dp"
+        android:layout_width="100dp"
         android:layout_height="150dp"
         android:contentDescription="@string/nav_header_desc"
 
-        app:srcCompat="@drawable/sallesport" />
-
+        app:srcCompat="@drawable/account" />
 
 
 </LinearLayout>
