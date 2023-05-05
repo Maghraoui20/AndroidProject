@@ -61,7 +61,16 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         });
 
-
+        navigationViewlogout.getMenu().findItem(R.id.nav_share).setOnMenuItemClickListener(menuItem -> {
+           Intent intent = new Intent(Intent.ACTION_SEND);
+           intent.setType("text/plain");
+           String Body = "Download this app";
+           String Stub = "http://play.google.com";
+           intent.putExtra(Intent.EXTRA_TEXT, Body);
+           intent.putExtra(Intent.EXTRA_TEXT, Stub);
+           startActivity(Intent.createChooser(intent, "Share using"));
+            return true;
+        });
 
     }
 
